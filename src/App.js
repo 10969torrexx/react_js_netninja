@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Title from './components/Title';
+import Modal from './components/Modal';
 
 function App() {
   const [showEvents, setShowEvents] = useState(true)
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Title/>
+      <Title title="prop value from root component" subtitle="this is the subtitle from root component"/>
       {
         showEvents && (
           <div>
@@ -45,6 +46,16 @@ function App() {
           </div>
         ))
       }
+{/* 
+      <Modal>
+        <h2>This is the H2 tag</h2>
+        <p>This is the p element</p>
+      </Modal> */}
+      <Modal>
+        <h2>This is the H2 tag</h2>
+        <p>Lorem</p>
+        <a>find out more...</a>
+      </Modal>
     </div>
   );
 }
