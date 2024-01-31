@@ -17,20 +17,28 @@ function App() {
       })
     })
   }
-  
+
   return (
     <div className="App">
-      <div>
-        <button onClick={() => setShowEvents(false)}>Hide Events</button>
-      </div>
-      <div>
-        <button onClick={() => setShowEvents(true)}>Show Events</button>
-      </div>
       {
-        events.map((event, index) => (
-          <div key={event.id}>
-            <h2>{index} - {event.title}</h2>
-            <button onClick={() => handleClick(event.id)}>Delete Event</button>
+        showEvents && (
+          <div>
+            <button onClick={() => setShowEvents(false)}>Hide Events</button>
+          </div>
+        )
+      }
+      {
+        !showEvents && (
+          <div>
+            <button onClick={() => setShowEvents(true)}>Show Events</button>
+          </div>
+        )
+      }
+      {
+        showEvents && events.map((event, index) => (
+          <div>
+              <h2>{index} - {event.title}</h2>
+              <button onClick={() => handleClick(event.id)}>delete event</button>
           </div>
         ))
       }
